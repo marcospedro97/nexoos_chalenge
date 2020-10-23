@@ -36,7 +36,7 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
+  Capybara.javascript_driver = :selenium_chrome_headless
   # Devise Integration helpers for feature tests
   config.include Warden::Test::Helpers
   # Syntax methods from FactoryBot
