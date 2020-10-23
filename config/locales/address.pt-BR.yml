@@ -1,6 +1,7 @@
 pt-BR:
-  orders:
+  addresses:
     add: 'Adcionar endereço'
+    remove: 'Remover endereço'
   activerecord:
     errors:
       models:

@@ -1,6 +1,7 @@
 pt-BR:
   phones:
     add: 'Adcionar telefone'
+    remove: 'Remover telefone'
   activerecord:
     errors:
       models:

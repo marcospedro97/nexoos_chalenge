@@ -6,46 +6,4 @@
   <% end %>
 <% end %>
 
-<%= form_with model: @applicant, local: true do |f| %>
-  <div>
-    <%= f.label :social_name %>
-    <%= f.text_field :social_name %>
-  </div>
-  <div>
-    <%= f.label :cnpj %>
-    <%= f.text_field :cnpj %>
-  </div>
-  <%= f.fields_for :phones do |p| %>
-    <div id='fieldsetPhone'>
-      <fieldset id='0'>
-        <%= p.label :number %>
-        <%= p.text_field :number %>
-        <button id='addPhone'>
-          <%= t('phones.add') %>
-        </button>
-      </fieldset>
-    </div>
-  <% end %>
-  <%= f.fields_for :addresses do |a| %>
-    <div id='fieldsetAddress'>
-      <fieldset id='0'>
-        <div>
-          <%= a.label :street %>
-          <%= a.text_field :street %>
-        </div>
-        <div>
-          <%= a.label :number %>
-          <%= a.text_field :number %>
-        </div>
-        <div>
-          <%= a.label :complement %>
-          <%= a.text_field :complement %>
-        </div>
-        <button id='addPhone'>
-          <%= t('phones.add') %>
-        </button>
-      </fieldset>
-    </div>
-  <% end %>
-  <%= f.submit 'Registrar' %>
-<% end %>
+<%= render partial: 'form', locals: { applicant: @applicant } %>

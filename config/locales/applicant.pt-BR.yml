@@ -11,6 +11,8 @@ pt-BR:
           attributes:
             cnpj: 
               blank: 'não pode ficar em branco'
+            social_name:
+              blank: 'não pode ficar em branco'
     models:
       applicant:
         one: 'Empresa solicitante'
