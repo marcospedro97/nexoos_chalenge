@@ -12,4 +12,6 @@ class Applicant < ApplicationRecord
   validates :user, presence: true
   validates :social_name, presence: true
   validates :cnpj, presence: true
+
+  scope :for_user, ->(user) { joins(:user).where('user_id = ?', user.id) }
 end
