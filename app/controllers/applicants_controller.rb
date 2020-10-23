@@ -1,6 +1,10 @@
 class ApplicantsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @applicants = Applicant.where(user: current_user)
+  end
+
   def show
     @applicant = Applicant.find(params[:id])
   end

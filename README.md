@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* MISSING FEATURES
+- APPLICANT SHOW MUST BELONG TO SAME USER
+- ZIP CODE IN ADDRESS
+- CNPJ UNIQUE
+- BULMA
+- POSTGRESQL
