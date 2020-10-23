@@ -1,0 +1,21 @@
+<% if @credit_solicitation.errors.any? %>
+  <% @credit_solicitation.errors.full_messages.each do |message| %>
+    <p>
+      <%= message %>
+    </p>
+  <% end %>
+<% end %>
+
+<%= form_with model: [:applicant, @credit_solicitation], local: true do |f| %>
+
+  <%= f.hidden_field :applicant_id, value: @credit_solicitation.applicant_id %>
+  <div class='field'>
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </div>
+  <div class='field'>
+    <%= f.label :plots_amount %>
+    <%= f.text_field :plots_amount %>
+  </div>
+  <%= f.submit 'Registrar' %>
+<% end %>

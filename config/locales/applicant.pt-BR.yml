@@ -18,11 +18,13 @@ pt-BR:
         one: 'Empresa solicitante'
         other: 'Empresas solicitantes'
         create: 'Registre sua empresa'
+        index: 'Suas empresas'
     attributes:
       applicant/phones:
         number: 'Número'
       applicant/addresses:
         street: 'Rua'
+        zip_code: 'CEP'
         number: 'Número do endereço'
       applicant:
         social_name: 'Nome Social'

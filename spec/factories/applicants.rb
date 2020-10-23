@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :applicant do
     social_name { 'MyString' }
-    cnpj { 'MyString' }
+    cnpj { Faker::CNPJ.numeric }
     user { create(:user) }
     phones { [association(:phone_without_applicant, strategy: :build)] }
     addresses { [association(:address_without_applicant, strategy: :build)] }

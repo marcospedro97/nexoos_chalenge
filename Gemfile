@@ -37,6 +37,8 @@ gem 'cocoon'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # Gem to generate CPF and CNPJ
+  gem 'cpf_faker'
   # Fixtures replacement with a straightforward definition syntax
   gem 'factory_bot_rails'
   # A port of Perl's Data::Faker library that generates fake data
