@@ -1,0 +1,27 @@
+pt-BR:
+  orders:
+    create:
+      success: 'Empresa solicitante cadastrada'
+    update:
+      success: 'Cadastro atualizado'
+  activerecord:
+    errors:
+      models:
+        applicant:
+          attributes:
+            cnpj: 
+              blank: 'não pode ficar em branco'
+    models:
+      applicant:
+        one: 'Empresa solicitante'
+        other: 'Empresas solicitantes'
+        create: 'Registre sua empresa'
+    attributes:
+      applicant/phones:
+        number: 'Número'
+      applicant/addresses:
+        street: 'Rua'
+        number: 'Número do endereço'
+      applicant:
+        social_name: 'Nome Social'
+        cnpj: 'CNPJ'

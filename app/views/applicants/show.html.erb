@@ -1,0 +1,12 @@
+<p>
+  <%= @applicant.social_name %>
+  <%= @applicant.cnpj %>
+  <% @applicant.phones.each do |phone| %>
+    <%= phone.number %>
+  <% end %>
+  <% @applicant.addresses.each do |address| %>
+    <%= address.street %>
+    <%= address.number %>
+    <%= address.complement %>
+  <%end %>
+</p>

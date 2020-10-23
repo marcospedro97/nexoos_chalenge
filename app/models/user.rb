@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :applicant, inverse_of: :user
-  has_many :phones, through: :applicant
-  has_many :addresses, through: :applicant
+  has_many :applicants, dependent: :destroy
+  has_many :phones, through: :applicants
+  has_many :addresses, through: :applicants
 end

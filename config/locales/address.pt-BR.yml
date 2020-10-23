@@ -1,0 +1,21 @@
+pt-BR:
+  orders:
+    add: 'Adcionar endereço'
+  activerecord:
+    errors:
+      models:
+        address:
+          attributes:
+            number:
+              blank: 'não pode ficar em branco'
+            street:
+              blank: 'não pode ficar em branco'
+    models:
+      address:
+        one: 'Endereço'
+        other: 'Endereços'
+    attributes:
+      address:
+        street: 'Rua'
+        number: 'Número'
+        complement: 'Complemento'
