@@ -1,0 +1,18 @@
+pt-BR:
+  phones:
+    add: 'Adcionar telefone'
+    remove: 'Remover telefone'
+  activerecord:
+    errors:
+      models:
+        phone:
+          attributes:
+            number:
+              blank: 'de telefone não pode ficar em branco'
+    models:
+      phone:
+        one: 'Telefone'
+        other: 'Telefones'
+    attributes:
+      phone:
+        number: 'Telefone'

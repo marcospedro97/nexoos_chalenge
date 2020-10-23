@@ -4,13 +4,20 @@
     <title>NexoosChallenge</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav>
+      <% if user_signed_in? %>
+        <%= link_to t('models.applicant.create', scope: :activerecord), new_applicant_path %>
+      <% else %>
+        <%= link_to t('shared.links.sign_in', scope: :devise), new_user_session_path %>
+      <% end %>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

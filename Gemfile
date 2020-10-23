@@ -31,11 +31,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Devise handles the application Auth
 gem 'devise'
 
+# Cocon makes it easier to handle nested forms
+gem 'cocoon'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Fixtures replacement with a straightforward definition syntax
   gem 'factory_bot_rails'
+  # A port of Perl's Data::Faker library that generates fake data
+  gem 'faker'
   # Drop-in alternative to rails default testing framework, Minitest
   gem 'rspec-rails', '~> 4.0.1'
 end
@@ -55,6 +60,8 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  # Simplecov is a code coverage analysis tool for Ruby
+  gem 'simplecov', require: false
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

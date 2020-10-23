@@ -1,0 +1,30 @@
+<%= form_with model: @applicant, local: true do |f| %>
+  <div class='field'>
+    <%= f.label :social_name %>
+    <%= f.text_field :social_name %>
+  </div>
+  <div class='field'>
+    <%= f.label :cnpj %>
+    <%= f.text_field :cnpj %>
+  </div>
+  
+  <div id='phones'>
+    <%= f.fields_for :phones do |p| %>
+      <%= render 'phone_fields', f: p %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association t('phones.add'), f, :phones %>
+    </div>
+  </div>
+
+  <div id='addresses'>
+    <%= f.fields_for :addresses do |a| %>
+      <%= render 'address_fields', f: a %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association t('addresses.add'), f, :addresses %>
+    </div>
+  </div>
+
+  <%= f.submit 'Registrar' %>
+<% end %>
