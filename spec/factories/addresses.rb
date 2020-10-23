@@ -1,14 +1,14 @@
 FactoryBot.define do
   factory :address do
-    street { "MyString" }
+    street { 'MyString' }
     number { 1 }
-    complement { "MyString" }
+    complement { 'MyString' }
     applicant { create(:applicant) }
 
     factory :address_without_applicant do
-      street { "MyString" }
+      street { 'MyString' }
       number { 1 }
-      complement { "MyString" }
+      complement { 'MyString' }
       applicant { nil }
     end
   end
