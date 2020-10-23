@@ -10,14 +10,12 @@ RSpec.describe CreditSolicitation, type: :model do
   end
 
   it 'should validate value' do
-    expect(build(:credit_solicitation_with_applicant, value: nil)).not_to be_valid
+    expect(build(:credit_solicitation_with_applicant, value: nil))
+      .not_to be_valid
   end
 
   it 'should validate plots' do
-    expect(build(:credit_solicitation_with_applicant, plots: nil)).not_to be_valid
-  end
-
-  it 'should validate interest rate' do
-    expect(build(:credit_solicitation_with_applicant, interest_rate: nil)).not_to be_valid
+    expect(build(:credit_solicitation_with_applicant, plots_amount: nil))
+      .not_to be_valid
   end
 end

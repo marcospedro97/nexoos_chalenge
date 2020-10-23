@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_163359) do
+ActiveRecord::Schema.define(version: 2020_10_23_202904) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -34,10 +34,12 @@ ActiveRecord::Schema.define(version: 2020_10_23_163359) do
   create_table "credit_solicitations", force: :cascade do |t|
     t.integer "applicant_id", null: false
     t.decimal "value"
-    t.integer "plots"
+    t.integer "plots_amount"
     t.float "interest_rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "plots_value"
+    t.decimal "value_with_rate"
     t.index ["applicant_id"], name: "index_credit_solicitations_on_applicant_id"
   end
 
@@ -47,6 +49,15 @@ ActiveRecord::Schema.define(version: 2020_10_23_163359) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["applicant_id"], name: "index_phones_on_applicant_id"
+  end
+
+  create_table "plots", force: :cascade do |t|
+    t.integer "credit_solicitation_id", null: false
+    t.date "payment_day"
+    t.decimal "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["credit_solicitation_id"], name: "index_plots_on_credit_solicitation_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,4 +76,5 @@ ActiveRecord::Schema.define(version: 2020_10_23_163359) do
   add_foreign_key "applicants", "users"
   add_foreign_key "credit_solicitations", "applicants"
   add_foreign_key "phones", "applicants"
+  add_foreign_key "plots", "credit_solicitations"
 end

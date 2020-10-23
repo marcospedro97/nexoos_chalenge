@@ -1,0 +1,23 @@
+pt-BR:
+  orders:
+    create:
+      success: 'Solicitação de crédito efetuada'
+  activerecord:
+    errors:
+      models:
+        credit_solicitation:
+          attributes:
+            value: 
+              blank: 'não pode ficar em branco'
+            plots:
+              blank: 'não pode ficar em branco'
+    models:
+      credit_solicitation:
+        one: 'Solicitação de crédito'
+        other: 'Solicitações de crédito'
+        create: 'Nova solicitação de crédito'
+    attributes:
+      credit_solicitation:
+        value: 'Valor'
+        plots_amount: 'Número de parcelas'
+        interest_rate: 'Taxa de juros'

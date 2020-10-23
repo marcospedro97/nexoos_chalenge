@@ -18,6 +18,7 @@ pt-BR:
         one: 'Empresa solicitante'
         other: 'Empresas solicitantes'
         create: 'Registre sua empresa'
+        index: 'Suas empresas'
     attributes:
       applicant/phones:
         number: 'Número'
