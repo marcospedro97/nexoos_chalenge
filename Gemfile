@@ -41,6 +41,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   # A port of Perl's Data::Faker library that generates fake data
   gem 'faker'
+  gem 'cpf_faker'
   # Drop-in alternative to rails default testing framework, Minitest
   gem 'rspec-rails', '~> 4.0.1'
 end

@@ -31,6 +31,7 @@ class ApplicantsController < ApplicationController
     params.require(:applicant)
           .permit(:social_name, :cnpj, phones_attributes: %i[number],
                                        addresses_attributes: %i[street number
-                                                                complement])
+                                                                complement
+                                                                zip_code])
   end
 end

@@ -11,6 +11,8 @@ pt-BR:
               blank: 'não pode ficar em branco'
             street:
               blank: 'não pode ficar em branco'
+            zip_code:
+              blank: 'não pode ficar em branco'
     models:
       address:
         one: 'Endereço'
@@ -20,3 +22,4 @@ pt-BR:
         street: 'Rua'
         number: 'Número'
         complement: 'Complemento'
+        zip_code: 'CEP'

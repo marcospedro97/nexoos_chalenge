@@ -20,4 +20,10 @@ RSpec.describe Applicant, type: :model do
   it 'should validate addresses' do
     expect(build(:applicant, addresses: [])).not_to be_valid
   end
+
+  it 'should validate uniqueness of cnpj' do
+    previous_applicant = create(:applicant)
+    expect(build(:applicant, cnpj: previous_applicant.cnpj))
+      .not_to be_valid
+  end
 end

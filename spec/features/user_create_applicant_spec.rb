@@ -6,7 +6,7 @@ describe 'User create applicant' do
     user = create(:user)
     applicant = { social_name: 'Uma empresa legal',
                   cnpj: '57222068000132', phone: { number: '11967824553' },
-                  address: { street: 'Rua legal', number: '321' } }
+                  address: { street: 'Rua legal', number: '321', zip_code: '12345678' } }
     login_as user, scope: :user
     # ACT
     visit root_path
@@ -16,6 +16,7 @@ describe 'User create applicant' do
     fill_in 'Rua', with: applicant.dig(:address, :street)
     fill_in 'Número', with: applicant.dig(:address, :number)
     fill_in 'Complemento', with: applicant.dig(:address, :complement)
+    fill_in 'CEP', with: applicant.dig(:address, :zip_code)
     fill_in 'Telefone', with: applicant.dig(:phone, :number)
     click_button 'Registrar'
     # ASSERT
@@ -28,7 +29,7 @@ describe 'User create applicant' do
     expect(page).to have_content(applicant.dig(:phone, :number))
   end
 
-  scenario 'successfully' do
+  scenario 'failed' do
     # ARRANGE
     user = create(:user)
     applicant = { social_name: 'Uma empresa legal',
@@ -51,8 +52,8 @@ describe 'User create applicant' do
     user = create(:user)
     applicant = { social_name: 'Uma empresa legal', cnpj: '57222068000132' }
     phones = [{ number: '11967824553' }, { number: '1267824558' }]
-    addresses = [{ street: 'Rua legal', number: '123' },
-                 { street: 'Av legal', number: '321' }]
+    addresses = [{ street: 'Rua legal', number: '123', zip_code: '12345678' },
+                 { street: 'Av legal', number: '321', zip_code: '12345678' }]
     login_as user, scope: :user
     # ACT
     visit new_applicant_path
@@ -66,11 +67,13 @@ describe 'User create applicant' do
     end
     fill_in 'Rua', with: addresses.first[:street]
     fill_in 'Número', with: addresses.first[:number]
+    fill_in 'CEP', with: addresses.first[:zip_code]
     click_on 'Adcionar endereço'
     last_address_field = all('#addresses .nested-fields').last
     within(last_address_field) do
       fill_in 'Rua', with: addresses.last[:street]
       fill_in 'Número', with: addresses.last[:number]
+      fill_in 'CEP', with: addresses.last[:zip_code]
     end
     click_on 'Registrar'
     # ASSERT
