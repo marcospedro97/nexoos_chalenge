@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_223622) do
+ActiveRecord::Schema.define(version: 2020_10_23_231021) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_223622) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cnpj"], name: "index_applicants_on_cnpj", unique: true
     t.index ["user_id"], name: "index_applicants_on_user_id"
   end
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_223622) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["applicant_id"], name: "index_phones_on_applicant_id"
+    t.index ["number"], name: "index_phones_on_number", unique: true
   end
 
   create_table "plots", force: :cascade do |t|

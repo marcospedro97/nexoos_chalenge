@@ -4,4 +4,3 @@ class Phone < ApplicationRecord
   validates :applicant, presence: true
   validates :number, presence: true, uniqueness: true
 end
-

@@ -6,7 +6,8 @@ describe 'User create applicant' do
     user = create(:user)
     applicant = { social_name: 'Uma empresa legal',
                   cnpj: '57222068000132', phone: { number: '11967824553' },
-                  address: { street: 'Rua legal', number: '321', zip_code: '12345678' } }
+                  address: { street: 'Rua legal', number: '321',
+                             zip_code: '12345678' } }
     login_as user, scope: :user
     # ACT
     visit root_path
