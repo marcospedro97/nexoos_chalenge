@@ -32,7 +32,7 @@ class CreditSolicitation < ApplicationRecord
       if credit.plots.to_a.bsearch do |p|
            p.payment_day > today
          end
-        return errors.add(:applicant, 'Já tem empréstimos abertos')
+        return errors.add(:applicant_id, 'já tem empréstimos abertos')
       end
     end
   end

@@ -48,7 +48,7 @@ describe 'user create credit solicitation' do
     select '12', from: 'Número de parcelas'
     click_on 'Registrar'
     # ASSERT
-    expect(page).to have_content('Já tem empréstimos abertos')
+    expect(page).to have_content('A Empresa já tem empréstimos abertos')
   end
 
   scenario 'should validate fields' do
