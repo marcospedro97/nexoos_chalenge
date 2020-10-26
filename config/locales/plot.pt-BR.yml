@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      plot:
+        one: 'Parcela'
+        other: 'Parcelas'
+    attributes:
+      plot:
+        value: 'Valor da Parcela'
+        payment_day: 'Data do Pagamento'

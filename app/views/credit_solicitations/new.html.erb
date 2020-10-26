@@ -1,21 +1,32 @@
+<nav>
+  <h1><%= t('models.credit_solicitation.create', scope: :activerecord) %></h1>
+</nav>
+<div class='credit-new-triangle'></div>
 <% if @credit_solicitation.errors.any? %>
-  <% @credit_solicitation.errors.full_messages.each do |message| %>
-    <p>
-      <%= message %>
-    </p>
+  <div class='errors'>
+    <% @credit_solicitation.errors.full_messages.each do |message| %>
+      <p>
+        <%= message %>
+      </p>
+    <% end %>
+  </div>
+<% end %>
+<div class='title'>
+  <h1>Solicite Seu Emprestimo</h1>
+</div>
+<div class='form-container'>
+  <%= form_with model: [:applicant, @credit_solicitation], local: true do |f| %>
+    <%= f.hidden_field :applicant_id, value: @credit_solicitation.applicant_id %>
+    <div class='field'>
+      <%= f.label :value %>
+      <%= f.text_field :value %>
+    </div>
+    <div class='field'>
+      <%= f.label :plot_tax_id %>
+      <%= f.collection_select :plot_tax_id, @plot_taxes, :id, :plot, prompt: true %>
+    </div>
+    <div class='field'>
+      <%= f.submit 'Registrar', class: 'submit-button' %>
+    </div>
   <% end %>
-<% end %>
-
-<%= form_with model: [:applicant, @credit_solicitation], local: true do |f| %>
-
-  <%= f.hidden_field :applicant_id, value: @credit_solicitation.applicant_id %>
-  <div class='field'>
-    <%= f.label :value %>
-    <%= f.text_field :value %>
-  </div>
-  <div class='field'>
-    <%= f.label :plots_amount %>
-    <%= f.text_field :plots_amount %>
-  </div>
-  <%= f.submit 'Registrar' %>
-<% end %>
+</div>

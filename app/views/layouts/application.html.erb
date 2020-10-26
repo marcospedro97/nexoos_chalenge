@@ -8,17 +8,23 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <nav>
-      <% if user_signed_in? %>
-        <%= link_to t('models.applicant.create', scope: :activerecord), new_applicant_path %>
-        <%= link_to t('models.applicant.index', scope: :activerecord), applicants_path %>
-      <% else %>
-        <%= link_to t('shared.links.sign_in', scope: :devise), new_user_session_path %>
-      <% end %>
-    </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <body class="<%= "#{controller.controller_name}-#{controller.action_name}" %>">
+    <% if !notice.nil? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if !alert.nil? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <main>
+      <div class='side-bar'>
+        <div class='circle'></div>
+          <%= link_to t('models.applicant.create', scope: :activerecord), new_applicant_path, class: 'new-applicant' %>
+          <%= link_to t('models.applicant.index', scope: :activerecord), applicants_path, class: 'applicant-index' %>
+          <%= link_to t('shared.links.sign_out', scope: :devise), destroy_user_session_path, method: :delete, class: 'destroy-session' %>
+          <%= image_tag  "Logo_white.png" %>
+      </div>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

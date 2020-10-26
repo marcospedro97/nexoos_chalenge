@@ -9,15 +9,18 @@ pt-BR:
           attributes:
             value: 
               blank: 'não pode ficar em branco'
-            plots:
+            plot_tax:
               blank: 'não pode ficar em branco'
     models:
       credit_solicitation:
         one: 'Solicitação de crédito'
         other: 'Solicitações de crédito'
-        create: 'Nova solicitação de crédito'
+        create: 'Novo Empréstimo'
+        index: 'Ver Empréstimo'
     attributes:
       credit_solicitation:
         value: 'Valor'
-        plots_amount: 'Número de parcelas'
+        plot_tax_id: 'Número de parcelas'
+        plot_tax: 'Número de parcelas'
         interest_rate: 'Taxa de juros'
+        value_with_rate: 'Valor com juros'

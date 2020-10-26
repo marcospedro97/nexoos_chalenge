@@ -3,11 +3,12 @@
     <%= f.label :social_name %>
     <%= f.text_field :social_name %>
   </div>
+
   <div class='field'>
     <%= f.label :cnpj %>
     <%= f.text_field :cnpj %>
   </div>
-  
+
   <div id='phones'>
     <%= f.fields_for :phones do |p| %>
       <%= render 'phone_fields', f: p %>
@@ -26,5 +27,8 @@
     </div>
   </div>
 
-  <%= f.submit 'Registrar' %>
+  <div class='submit'>
+    <%= f.submit 'Registrar' %>
+  </div>
+
 <% end %>

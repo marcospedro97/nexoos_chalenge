@@ -1,9 +1,14 @@
+<nav class='new-applicant-nav'>
+  <h1><%= t('models.applicant.create') %></h1>
+</nav>
+<div class='applicant-new-triangle'></div>
 <% if @applicant.errors.any? %>
-  <% @applicant.errors.full_messages.each do |message| %>
-    <p>
-      <%= message %>
-    </p>
-  <% end %>
+  <div class='errors'>
+    <% @applicant.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
 <% end %>
-
-<%= render partial: 'form', locals: { applicant: @applicant } %>
+<div class='form-applicant-container'>
+  <%= render partial: 'form', locals: { applicant: @applicant } %>
+</div>

@@ -8,7 +8,7 @@ pt-BR:
         phone:
           attributes:
             number:
-              blank: 'de telefone não pode ficar em branco'
+              blank: 'não pode ficar em branco'
     models:
       phone:
         one: 'Telefone'

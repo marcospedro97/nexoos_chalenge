@@ -1,26 +1,61 @@
-<p>
-  <%= link_to t('models.credit_solicitation.create', scope: :activerecord), new_applicant_credit_solicitation_path(@applicant) %>
-  <%= @applicant.social_name %><br/>
-  <%= @applicant.cnpj %><br/>
-  <% @applicant.phones.each do |phone| %>
-    <%= phone.number %><br/>
-  <% end %>
-  <% @applicant.addresses.each do |address| %>
-    <%= address.street %><br/>
-    <%= address.number %><br/>
-    <%= address.complement %><br/>
-  <%end %>
-  <p>
-  <% @applicant.credit_solicitations.each do |credit| %>
-    <%= number_to_currency(credit.value) %>
-    <%= credit.plots_amount %>
-    <%= number_to_currency(credit.value_with_rate) %>
-    <% credit.plots.each do |plot| %>
-      <p>
-      <%= plot.payment_day.strftime('%d/%m/%y') %>
-      <%= number_to_currency(plot.value) %>
-      </p>
+
+<nav>
+  <h1><%= t('models.applicant.show', scope: :activerecord) %></h1>
+</nav>
+<div class='applicant-show-triangle'></div>
+<div class='content'>
+  <table style='width:100%'>
+    <tr>
+      <th>
+        <%= t('attributes.applicant.social_name', scope: :activerecord) %>:
+      </th>
+      <td>
+        <%= @applicant.social_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= t('attributes.applicant.cnpj', scope: :activerecord) %>:
+      </th>
+      <td>
+        <%= @applicant.cnpj %>
+      </td>
+    </tr>
+    <% @applicant.phones.each do |phone| %>
+      <tr>
+        <th>
+          <%= t('attributes.applicant/phones.number', scope: :activerecord) %>:
+        </th>
+        <td>
+          <%= phone.number %>
+        </td>
+      </tr>
     <% end %>
-  <% end %>
-  </p>
-</p>
+    <% @applicant.addresses.each do |address| %>
+      <tr>
+        <th>
+          <%= t('attributes.applicant/addresses.address', scope: :activerecord) %>:
+        </th>
+        <td>
+          <%= address.street %>
+          <%= address.number %>
+          <%= address.complement %>
+        </td>
+      </tr>
+    <%end %>
+    <% @applicant.credit_solicitations.each do |credit| %>
+      <tr>
+        <th>
+          <%= t('models.credit_solicitation.one', scope: :activerecord) %>
+        </th>
+        <td>
+          <%= credit.plots_amount %>x
+          <%= number_to_currency(credit.value) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <div class='links'>
+    <%= link_to t('models.credit_solicitation.index', scope: :activerecord), applicant_credit_solicitations_path(@applicant) %>
+    <%= link_to t('models.credit_solicitation.create', scope: :activerecord), new_applicant_credit_solicitation_path(@applicant) %>
+  </div>

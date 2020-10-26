@@ -8,7 +8,10 @@ describe 'user view applicant' do
     login_as user, scope: :user
     # ACT
     visit root_path
-    click_on 'Suas empresas'
+    last_navbar = all('nav').last
+    within(last_navbar) do
+      click_on 'Minhas Empresas'
+    end
     click_on applicant.social_name
     # ASSERT
     expect(page).to have_content(applicant.social_name)

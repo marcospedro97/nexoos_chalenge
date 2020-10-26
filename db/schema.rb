@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_231021) do
+ActiveRecord::Schema.define(version: 2020_10_25_235717) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -38,11 +38,13 @@ ActiveRecord::Schema.define(version: 2020_10_23_231021) do
     t.decimal "value"
     t.integer "plots_amount"
     t.float "interest_rate"
+    t.integer "plot_tax_id", null: false
+    t.decimal "value_with_rate"
+    t.decimal "plots_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "plots_value"
-    t.decimal "value_with_rate"
     t.index ["applicant_id"], name: "index_credit_solicitations_on_applicant_id"
+    t.index ["plot_tax_id"], name: "index_credit_solicitations_on_plot_tax_id"
   end
 
   create_table "phones", force: :cascade do |t|
@@ -52,6 +54,13 @@ ActiveRecord::Schema.define(version: 2020_10_23_231021) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["applicant_id"], name: "index_phones_on_applicant_id"
     t.index ["number"], name: "index_phones_on_number", unique: true
+  end
+
+  create_table "plot_taxes", force: :cascade do |t|
+    t.integer "plot"
+    t.float "tax"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "plots", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_231021) do
   add_foreign_key "addresses", "applicants"
   add_foreign_key "applicants", "users"
   add_foreign_key "credit_solicitations", "applicants"
+  add_foreign_key "credit_solicitations", "plot_taxes"
   add_foreign_key "phones", "applicants"
   add_foreign_key "plots", "credit_solicitations"
 end

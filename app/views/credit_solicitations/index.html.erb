@@ -1,0 +1,45 @@
+<nav class='credit-nav'>
+  <h1><%= t('models.credit_solicitation.index', scope: :activerecord) %></h1>
+</nav>
+<div class='credit-index-triangle'></div>
+<div class='credit-index-container'>
+  <table>
+    <tr>
+      <th>
+        <%= t('attributes.applicant.social_name', scope: :activerecord) %>
+      </th>
+      <td>
+        <%= @credit_solicitation.applicant.social_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= t('attributes.credit_solicitation.value', scope: :activerecord) %>
+      </th>
+      <td>
+        <%= number_to_currency(@credit_solicitation.value) %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= t('attributes.credit_solicitation.value_with_rate', scope: :activerecord) %>
+      </th>
+      <td>
+        <%= number_to_currency(@credit_solicitation.value_with_rate) %>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th><%= t('models.plot.one', scope: :activerecord) %></th>
+      <th><%= t('attributes.plot.payment_day', scope: :activerecord) %></th>
+      <th><%= t('attributes.plot.value', scope: :activerecord) %></th>
+    </tr>
+    <% @credit_solicitation.plots.each_with_index do |p, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= l(p.payment_day)%></td>
+        <td><%= number_to_currency(p.value) %></td>
+      </tr>
+    <% end %>
+  </table>

@@ -11,6 +11,10 @@ describe 'User create applicant' do
     login_as user, scope: :user
     # ACT
     visit root_path
+    last_navbar = all('nav').last
+    within(last_navbar) do
+      click_on 'Minhas Empresas'
+    end
     click_on 'Registre sua empresa'
     fill_in 'Nome Social', with: applicant[:social_name]
     fill_in 'CNPJ', with: applicant[:cnpj]

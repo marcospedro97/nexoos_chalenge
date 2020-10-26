@@ -1,0 +1,155 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'reset'
+
+.sessions-new, .registrations-new
+  main
+    height: 100%
+    width: 100%
+    display: flex
+
+.notice, .alert
+  padding: 1%
+
+.notice
+  background-color: white
+  color: #32e0c4
+
+.alert
+  background-color: red
+  color: white
+
+.home-index, .sessions-new, .registrations-new
+  .side-bar
+    display: none
+
+.home-index
+  main  
+    display: grid
+    height: 100%
+    width: 100%
+    grid-template-columns: repeat(20, 5%)
+    grid-template-rows: repeat(20, 5%)
+    background-color: #32e0c4
+
+    nav
+      background-color: #32e0c4
+
+.side-bar
+  grid-column: 1 / 6
+  grid-row: 1 / 21
+  background-color: #0D7377
+  display: grid
+  grid-template-columns: repeat(20, 5%)
+  grid-template-rows: repeat(20, 5%)
+
+  a
+    color: #ffffff
+
+  .new-applicant
+    grid-row: 8 / 9
+    grid-column: 6 / 21
+
+  .applicant-index
+    grid-row: 9 / span 1
+    grid-column: 7 / 21
+
+  .destroy-session
+    grid-row: 10 / 11
+    grid-column: 9 / 21
+  
+  .circle
+    height: 100%
+    clip-path: circle(30%)
+    background-color: #eeeeee
+    grid-column: 8 / 15
+    grid-row: 1 / 8
+
+  img
+    grid-row: 17 / 20
+    grid-column: 8 / 15
+
+main
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-columns: repeat(20, 5%)
+  grid-template-rows: repeat(20, 5%)
+  background-color: #ffffff
+
+.credit_solicitations-index
+  main
+    width: 100%
+    height: 100%
+    display: grid
+    grid-template-columns: repeat(20, 5%)
+    grid-template-rows: repeat(20, min-content)
+    background-color: #ffffff
+
+    .side-bar
+      grid-column: 1 / 6
+      grid-row: 1 / span 10
+      background-color: #0D7377
+      display: grid
+      grid-template-columns: repeat(20, 5%)
+      grid-template-rows: repeat(20, 5%)
+
+      a
+        color: #ffffff
+
+    .new-applicant
+      grid-row: 8 / span 1
+      grid-column: 6 / 21
+      color: #ffffff
+
+    .applicant-index
+      grid-row: 9 / span 1
+      grid-column: 7 / 21
+
+    .destroy-session
+      grid-row: 10 / span 1
+      grid-column: 9 / 21
+    
+    .circle
+      height: 100%
+      clip-path: circle(30%)
+      background-color: #eeeeee
+      grid-column: 8 / 15
+      grid-row: 1 / span 7
+
+    img
+      grid-row: 16 / span 3
+      grid-column: 8 / 15
+
+.errors
+  width: 60%
+  height: 100%
+  padding: 4%
+  grid-column: 7 / span 6
+  grid-row: 3 / span 6
+  background-color: #E5AAAA
+  color: #ffffff
+
+.credit_solicitations-create
+  .errors
+    width: 60%
+    height: 100%
+    padding: 4%
+    grid-column: 7 / span 6
+    grid-row: 17 / span 2
+    background-color: #E5AAAA
+    color: #ffffff

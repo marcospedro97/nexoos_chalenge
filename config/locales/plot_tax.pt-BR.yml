@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        credit_solicitation:
+          attributes:
+            plot:
+              blank: 'não pode ficar em branco'
+            tax:
+              blank: 'não pode ficar em branco'
+    models:
+      credit_solicitation:
+        one: 'Número de parcelas'

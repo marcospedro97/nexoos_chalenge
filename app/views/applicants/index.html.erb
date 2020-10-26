@@ -1,5 +1,14 @@
-<% if @applicants.any? %>
-  <%= @applicants.each do |applicant| %>
-    <%= link_to  applicant.social_name, applicant_path(applicant) %>
+<nav>
+  <h1><%= t('models.applicant.index', scope: :activerecord) %></h1>
+</nav>
+<div class='triangle'></div>
+
+<div class='content-container'>
+  <div class='content'>
+  <h2><%= t('models.applicant.index', scope: :activerecord) %></h2>
+  <hr />
+  <% if @applicants.any? %>
+    <% @applicants.each do |applicant| %>
+      <%= link_to  applicant.social_name, applicant_path(applicant) %>
+    <% end %>
   <% end %>
-<% end %>

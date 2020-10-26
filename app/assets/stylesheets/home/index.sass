@@ -1,0 +1,49 @@
+.home-index
+  main
+    nav
+      grid-column: 10 / 20
+      grid-row: 2
+      display: flex
+      align-content: baseline
+      justify-content: space-between
+
+      h2
+        padding-top: 1em
+        font-family: 'Roboto Slab'
+        text-decoration: underline
+        color: #ffffff
+      a
+        background-color: #ffffff
+        color: #32E0C4
+        border-radius: 40.5px
+        padding-right: 2em
+        padding-left: 2em
+        padding-top: 1em
+        padding-bottom: 2em
+
+    .triangle
+      grid-column: 1 / 11
+      grid-row-start: 1
+      grid-row-end: 21
+      height: 100%
+      background-color: #eeeeee
+      clip-path: polygon(0% 0%, 0% 100%, 100% 50%)
+      display: flex
+      align-items: center
+
+      .triangle_content
+        margin-left: 10%
+        display: flex
+        flex-direction: column
+        h2
+          margin-left: 5%
+          font-size: 1.2em
+          color: #0D7377
+
+    .home-content
+      grid-row-start: 5
+      grid-column: 8 / 18
+      font-size: 2em
+      h2
+        color: #ffffff
+        font-family: Cabin
