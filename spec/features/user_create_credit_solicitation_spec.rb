@@ -21,7 +21,7 @@ describe 'user create credit solicitation' do
     select '12', from: 'Número de parcelas'
     click_on 'Registrar'
     # ASSERT
-    expect(page).to have_content(13.months.from_now.strftime('%d/%m/%Y'))
+    expect(page).to have_content(12.months.from_now.strftime('%d/%m/%Y'))
     expect(page).to have_content(1.month.from_now.strftime('%d/%m/%Y'))
     expect(page).to have_content(applicant.social_name)
     expect(page).to have_content('R$ 100.000,00')
