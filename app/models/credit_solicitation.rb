@@ -32,7 +32,7 @@ class CreditSolicitation < ApplicationRecord
       if credit.plots.to_a.bsearch do |p|
            p.payment_day > today
          end
-        return errors.add(:applicant_id, 'já tem empréstimos abertos')
+        return errors.add(:applicant, 'Já tem empréstimos abertos')
       end
     end
   end
@@ -57,7 +57,7 @@ class CreditSolicitation < ApplicationRecord
 
   def make_plots
     date = 1.month.from_now
-    end_date = (plots_amount).months.from_now
+    end_date = (plots_amount + 1).months.from_now
     while date < end_date
       plots << Plot.new(payment_day: date, value: plots_value)
       date += 1.month
