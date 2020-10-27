@@ -65,6 +65,7 @@ group :test do
   # Simplecov is a code coverage analysis tool for Ruby
   gem 'simplecov', require: false
   # SQLITE for test database
+  gem 'sqlite3', '~> 1.4'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
