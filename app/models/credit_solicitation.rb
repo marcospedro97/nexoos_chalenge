@@ -57,7 +57,7 @@ class CreditSolicitation < ApplicationRecord
 
   def make_plots
     date = 1.month.from_now
-    end_date = (plots_amount + 1).months.from_now
+    end_date = (plots_amount).months.from_now
     while date < end_date
       plots << Plot.new(payment_day: date, value: plots_value)
       date += 1.month
