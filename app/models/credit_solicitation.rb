@@ -13,28 +13,20 @@ class CreditSolicitation < ApplicationRecord
   before_create :make_plots
 
   def self.with_open_plots(applicant_id)
-    applicant = Applicant.find(applicant_id)
-    today = Date.current.strftime('%d/%m/%y')
-    applicant.credit_solicitations.each do |credit|
-      if credit.plots.to_a.bsearch do |p|
-           p.payment_day.strftime('%d/%m/%y') > today
-         end
-        return credit
-      end
-    end
+    credit_solicitation = where(applicant_id: applicant_id).last
+    credit_solicitation.plots = Plot.open(credit_solicitation.id)
+    credit_solicitation
   end
 
   private
 
   def dont_have_open_plot
-    today = Date.current
-    applicant.credit_solicitations.each do |credit|
-      if credit.plots.to_a.bsearch do |p|
-           p.payment_day > today
-         end
-        return errors.add(:applicant, 'Já tem empréstimos abertos')
-      end
-    end
+    credit_solicitation = CreditSolicitation.where(applicant_id: applicant_id)
+                                            .last
+    return if credit_solicitation.blank?
+
+    plots = Plot.open(credit_solicitation.id)
+    return errors.add(:applicant, 'Já tem empréstimos abertos') if plots.any?
   end
 
   def add_interest_rate
